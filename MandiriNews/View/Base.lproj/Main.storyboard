@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hzn-CL-Btf">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MandiriNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uoF-Uq-vw8">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="qNb-Qd-fr4" customClass="CategoryCell" customModule="MandiriNews" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qNb-Qd-fr4" id="WTg-Os-ImP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="eMf-qR-Rel"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="nUh-DT-MKC"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="uoF-Uq-vw8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Bkw-70-HdD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uoF-Uq-vw8" secondAttribute="bottom" id="ODE-m9-OWP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uoF-Uq-vw8" secondAttribute="trailing" id="mhp-zX-P1U"/>
+                            <constraint firstItem="uoF-Uq-vw8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="xMb-Y2-ibu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="MpO-QK-0Sj"/>
+                    <connections>
+                        <outlet property="tableView" destination="uoF-Uq-vw8" id="zzD-nD-6V9"/>
+                        <segue destination="HlQ-2x-RmB" kind="push" identifier="articleSegue" id="AZn-Hr-ViS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="132.58928571428572"/>
+        </scene>
+        <!--News View Controller-->
+        <scene sceneID="FnU-x5-p5b">
+            <objects>
+                <viewController id="HlQ-2x-RmB" customClass="NewsViewController" customModule="MandiriNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gaX-nd-hDC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ha8-N0-nym">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="articleCell" rowHeight="100" id="MnQ-No-9An" customClass="ArticleCell" customModule="MandiriNews" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MnQ-No-9An" id="uEV-V3-c89">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bi9-Ty-at8">
+                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mt9-qq-fOi">
+                                                    <rect key="frame" x="20" y="40" width="374" height="46"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="mt9-qq-fOi" id="bTm-b3-omL"/>
+                                            <outlet property="nameLabel" destination="Bi9-Ty-at8" id="YoT-sD-tKh"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="HlQ-2x-RmB" id="bqY-Hx-u4W"/>
+                                    <outlet property="delegate" destination="HlQ-2x-RmB" id="Bza-W8-JCt"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3QQ-V7-DUS" firstAttribute="bottom" secondItem="ha8-N0-nym" secondAttribute="bottom" id="Ro4-GQ-Lzi"/>
+                            <constraint firstItem="3QQ-V7-DUS" firstAttribute="trailing" secondItem="ha8-N0-nym" secondAttribute="trailing" id="Tbg-lF-po1"/>
+                            <constraint firstItem="ha8-N0-nym" firstAttribute="leading" secondItem="3QQ-V7-DUS" secondAttribute="leading" id="lT4-DK-Ryz"/>
+                            <constraint firstItem="ha8-N0-nym" firstAttribute="top" secondItem="3QQ-V7-DUS" secondAttribute="top" id="rht-eL-CnZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3QQ-V7-DUS"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZH6-JO-5BI"/>
+                    <connections>
+                        <segue destination="fdg-b4-M55" kind="push" identifier="webViewSegue" id="OHK-Qy-asf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wjc-Yx-TK6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1966.6666666666667" y="132.58928571428572"/>
+        </scene>
+        <!--Web View View Controller-->
+        <scene sceneID="yKu-ZT-pph">
+            <objects>
+                <viewController id="fdg-b4-M55" customClass="WebViewViewController" customModule="MandiriNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LXY-hw-1NL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XaT-LB-N2K">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="TiS-rU-m7E" firstAttribute="trailing" secondItem="XaT-LB-N2K" secondAttribute="trailing" id="Hly-A6-sgs"/>
+                            <constraint firstItem="XaT-LB-N2K" firstAttribute="leading" secondItem="TiS-rU-m7E" secondAttribute="leading" id="Snd-Gi-r7l"/>
+                            <constraint firstItem="XaT-LB-N2K" firstAttribute="top" secondItem="TiS-rU-m7E" secondAttribute="top" id="dF0-cS-WIA"/>
+                            <constraint firstItem="TiS-rU-m7E" firstAttribute="bottom" secondItem="XaT-LB-N2K" secondAttribute="bottom" id="vr0-hK-p4a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TiS-rU-m7E"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lXH-IV-nYQ"/>
+                    <connections>
+                        <outlet property="webView" destination="XaT-LB-N2K" id="JAS-OR-blA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gGr-eq-Jwq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2841" y="133"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2AY-qz-bQE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hzn-CL-Btf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZLY-5d-gcv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="VaF-vM-1Km"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="klx-nP-Vyt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="132.58928571428572"/>
+        </scene>
+    </scenes>
+</document>
