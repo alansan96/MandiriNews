@@ -10,17 +10,19 @@ import UIKit
 
 class NewsViewController: UIViewController {
     
+    @IBOutlet weak var asearchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    
     var article : [NewsModel]?
+    var searchedArticle : [NewsModel]?
     
     var url = String()
+    var searching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //
-        //        article?.forEach({ (article) in
-        //            print(article.name, article.sourceDescription)
-        //        })
-        //
+
+        searchedArticle = article
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -33,14 +35,16 @@ class NewsViewController: UIViewController {
 
 extension NewsViewController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return article?.count ?? 0
+        return searchedArticle?.count ?? 0
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! ArticleCell
         
-        cell.nameLabel.text = article?[indexPath.row].name
-        cell.descriptionLabel.text = article?[indexPath.row].sourceDescription
+        
+        cell.nameLabel.text = searchedArticle?[indexPath.row].name
+        cell.descriptionLabel.text = searchedArticle?[indexPath.row].sourceDescription
         
         return cell
     }
@@ -50,9 +54,26 @@ extension NewsViewController : UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        url = article?[indexPath.row].url ?? ""
+        url = searchedArticle?[indexPath.row].url ?? ""
         performSegue(withIdentifier: "webViewSegue", sender: self)
     }
     
     
+}
+
+
+extension NewsViewController : UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            searching = false
+            searchedArticle = article
+        }else{
+            searching = true
+            searchedArticle = article?.filter{($0.sourceDescription?.contains(searchText) ?? false)}
+        }
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
 }

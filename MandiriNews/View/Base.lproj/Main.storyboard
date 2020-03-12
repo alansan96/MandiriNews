@@ -62,7 +62,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ha8-N0-nym">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="articleCell" rowHeight="100" id="MnQ-No-9An" customClass="ArticleCell" customModule="MandiriNews" customModuleProvider="target">
@@ -99,18 +99,30 @@
                                     <outlet property="delegate" destination="HlQ-2x-RmB" id="Bza-W8-JCt"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0L8-XX-pWw">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="HlQ-2x-RmB" id="Zsb-97-X4C"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="0L8-XX-pWw" firstAttribute="trailing" secondItem="3QQ-V7-DUS" secondAttribute="trailing" id="3OV-kw-gLl"/>
+                            <constraint firstItem="0L8-XX-pWw" firstAttribute="top" secondItem="3QQ-V7-DUS" secondAttribute="top" id="Aax-HG-yjo"/>
+                            <constraint firstItem="0L8-XX-pWw" firstAttribute="leading" secondItem="3QQ-V7-DUS" secondAttribute="leading" id="Db1-bv-lkC"/>
                             <constraint firstItem="3QQ-V7-DUS" firstAttribute="bottom" secondItem="ha8-N0-nym" secondAttribute="bottom" id="Ro4-GQ-Lzi"/>
                             <constraint firstItem="3QQ-V7-DUS" firstAttribute="trailing" secondItem="ha8-N0-nym" secondAttribute="trailing" id="Tbg-lF-po1"/>
                             <constraint firstItem="ha8-N0-nym" firstAttribute="leading" secondItem="3QQ-V7-DUS" secondAttribute="leading" id="lT4-DK-Ryz"/>
-                            <constraint firstItem="ha8-N0-nym" firstAttribute="top" secondItem="3QQ-V7-DUS" secondAttribute="top" id="rht-eL-CnZ"/>
+                            <constraint firstItem="ha8-N0-nym" firstAttribute="top" secondItem="0L8-XX-pWw" secondAttribute="bottom" symbolic="YES" id="sBd-VQ-RMc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3QQ-V7-DUS"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZH6-JO-5BI"/>
                     <connections>
+                        <outlet property="asearchBar" destination="0L8-XX-pWw" id="3Nl-aL-CUZ"/>
+                        <outlet property="tableView" destination="ha8-N0-nym" id="8uI-UQ-8cF"/>
                         <segue destination="fdg-b4-M55" kind="push" identifier="webViewSegue" id="OHK-Qy-asf"/>
                     </connections>
                 </viewController>
